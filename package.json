@@ -1,0 +1,33 @@
+{
+  "name": "react-infinite-list",
+  "version": "1.0.0",
+  "description": "Simple React infinite list component",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/csfoldesi/react-infinite-list.git"
+  },
+  "keywords": [
+    "react",
+    "typescript",
+    "infinite",
+    "list"
+  ],
+  "author": "Csaba Földesi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/csfoldesi/react-infinite-list/issues"
+  },
+  "homepage": "https://github.com/csfoldesi/react-infinite-list#readme",
+  "peerDependencies": {
+    "react": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.5",
+    "typescript": "^5.5.4"
+  }
+}
