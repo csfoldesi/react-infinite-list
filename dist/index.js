@@ -1,5 +1,23 @@
-"use strict";
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+import React, { useState, useRef, useCallback, useEffect } from 'react';
+
+/******************************************************************************
+Copyright (c) Microsoft Corporation.
+
+Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
+OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+PERFORMANCE OF THIS SOFTWARE.
+***************************************************************************** */
+/* global Reflect, Promise, SuppressedError, Symbol, Iterator */
+
+
+function __awaiter(thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
         function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
@@ -7,10 +25,11 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
-};
-var __generator = (this && this.__generator) || function (thisArg, body) {
-    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
-    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+}
+
+function __generator(thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g = Object.create((typeof Iterator === "function" ? Iterator : Object).prototype);
+    return g.next = verb(0), g["throw"] = verb(1), g["return"] = verb(2), typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
     function verb(n) { return function (v) { return step([n, v]); }; }
     function step(op) {
         if (f) throw new TypeError("Generator is already executing.");
@@ -34,19 +53,21 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
+}
+
+typeof SuppressedError === "function" ? SuppressedError : function (error, suppressed, message) {
+    var e = new Error(message);
+    return e.name = "SuppressedError", e.error = error, e.suppressed = suppressed, e;
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.default = InfiniteList;
-var react_1 = require("react");
-var React = require("react");
+
 function InfiniteList(_a) {
     var _this = this;
     var dataSource = _a.dataSource, children = _a.children, loader = _a.loader;
     var hasNextPage = dataSource.hasNextPage, loadNextPage = dataSource.loadNextPage;
-    var _b = (0, react_1.useState)((Array)), data = _b[0], setData = _b[1];
-    var _c = (0, react_1.useState)(false), isLoading = _c[0], setIsLoading = _c[1];
-    var loaderRef = (0, react_1.useRef)(null);
-    var fetchNextData = (0, react_1.useCallback)(function () { return __awaiter(_this, void 0, void 0, function () {
+    var _b = useState((Array)), data = _b[0], setData = _b[1];
+    var _c = useState(false), isLoading = _c[0], setIsLoading = _c[1];
+    var loaderRef = useRef(null);
+    var fetchNextData = useCallback(function () { return __awaiter(_this, void 0, void 0, function () {
         return __generator(this, function (_a) {
             if (isLoading || !hasNextPage)
                 return [2 /*return*/];
@@ -58,7 +79,7 @@ function InfiniteList(_a) {
             return [2 /*return*/];
         });
     }); }, [isLoading, hasNextPage, loadNextPage, dataSource]);
-    (0, react_1.useEffect)(function () {
+    useEffect(function () {
         var observer = new IntersectionObserver(function (entries) {
             var target = entries[0];
             if (target.isIntersecting) {
@@ -87,3 +108,6 @@ function InfiniteList(_a) {
         data.map(function (item, index) { return children(item, index); }),
         React.createElement("div", { ref: loaderRef }, renderLoader())));
 }
+
+export { InfiniteList };
+//# sourceMappingURL=index.js.map

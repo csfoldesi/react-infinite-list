@@ -1,11 +1,14 @@
 {
-  "name": "react-infinite-list",
-  "version": "1.0.0",
+  "name": "react-infinite-list-component",
+  "version": "1.0.2",
   "description": "Simple React infinite list component",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "index.d.js",
+  "files": ["dist"],
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc"
+    "build": "rollup -c"
   },
   "repository": {
     "type": "git",
@@ -27,7 +30,10 @@
     "react": "^18.3.1"
   },
   "devDependencies": {
+    "@rollup/plugin-typescript": "^11.1.6",
     "@types/react": "^18.3.5",
+    "rollup": "^4.21.2",
+    "tslib": "^2.7.0",
     "typescript": "^5.5.4"
   }
 }

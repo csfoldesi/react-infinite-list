@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { InfiniteListDataSource } from "../models/infiniteListDataSource";
-import React = require("react");
+import React from "react";
 
 type Props<T> = {
   dataSource: InfiniteListDataSource<T>;
@@ -8,7 +8,7 @@ type Props<T> = {
   loader?: JSX.Element;
 };
 
-export default function InfiniteList<T>({ dataSource, children, loader }: Props<T>) {
+export function InfiniteList<T>({ dataSource, children, loader }: Props<T>) {
   const { hasNextPage, loadNextPage } = dataSource;
   const [data, setData] = useState(Array<T>);
   const [isLoading, setIsLoading] = useState(false);
