@@ -1,9 +1,12 @@
 {
-  "name": "react-infinite-list-component",
-  "version": "1.0.2",
+  "name": "@idevelopment-hu/react-infinite-list",
+  "version": "1.0.0",
   "description": "Simple React infinite list component",
   "main": "dist/index.js",
-  "types": "index.d.js",
+  "types": "dist/index.d.js",
+  "exports": {
+    ".": "./dist/index.js"
+  },  
   "files": ["dist"],
   "type": "module",
   "scripts": {
@@ -20,7 +23,7 @@
     "infinite",
     "list"
   ],
-  "author": "Csaba Földesi",
+  "author": "Csaba Földesi <csaba.foldesi@idevelopment.hu>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/csfoldesi/react-infinite-list/issues"

@@ -1,6 +1,6 @@
 import axios from "axios";
 import { PostDTO } from "./postDTO";
-import { InfiniteListDataSource } from "react-infinite-list-component/dist";
+import { InfiniteListDataSource } from "@idevelopment-hu/react-infinite-list";
 
 const sleep = (delay: number) => {
   return new Promise((resolve) => {

@@ -1,6 +1,6 @@
+import { InfiniteList } from "@idevelopment-hu/react-infinite-list";
 import DataSource from "./dataSource";
 import { PostDTO } from "./postDTO";
-import { InfiniteList } from "react-infinite-list-component/dist";
 
 function App() {
   const dataSource = new DataSource();
